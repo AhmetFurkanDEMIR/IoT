@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Ahmet Demir",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -60.6, "left": -179.6, "attrs": {} },
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -285.75, "left": -320.81, "attrs": {} },
+    { "type": "board-ssd1306", "id": "oled1", "top": 189.61, "left": -201.03, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 48.16, "left": -361.64, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "bb1:1t.a", "red", [ "v-1.23", "h58.23" ] ],
+    [ "esp:GND.1", "bb1:2t.a", "black", [ "h0" ] ],
+    [ "imu1:VCC", "bb1:1t.b", "red", [ "v0" ] ],
+    [ "imu1:GND", "bb1:2t.c", "black", [ "v0" ] ],
+    [ "imu1:SDA", "bb1:3t.d", "green", [ "v0" ] ],
+    [ "imu1:SCL", "bb1:4t.e", "blue", [ "v0" ] ],
+    [ "bb1:4t.a", "esp:D22", "blue", [ "v0" ] ],
+    [ "bb1:3t.a", "esp:D21", "green", [ "v0" ] ],
+    [ "oled1:VCC", "bb1:1b.f", "red", [ "v0" ] ],
+    [ "oled1:GND", "bb1:2b.f", "black", [ "v-38.33", "h13.99" ] ],
+    [ "oled1:SDA", "bb1:3b.f", "green", [ "v0" ] ],
+    [ "oled1:SCL", "bb1:4b.f", "blue", [ "v-35.31", "h16.27" ] ],
+    [ "bb1:1b.f", "bb1:1t.e", "red", [ "v0" ] ],
+    [ "bb1:2t.e", "bb1:2b.f", "black", [ "v0" ] ],
+    [ "bb1:3t.e", "bb1:3b.f", "green", [ "v0" ] ],
+    [ "bb1:4b.f", "bb1:4t.e", "blue", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
